@@ -27,33 +27,12 @@ This is designed to be a simple and fairly minimal setup required to begin devel
 * Aquire makerom and bannertool binaries from [buildtools], or compile them yourself from [makerom] and [bannertool]
 * Copy the makerom/bannertool to `$DEVKITARM/bin` or some other directory in your `$PATH`
 
-## Code::Blocks Setup
-1. Simply open `3ds.cbp` in Code::Blocks
-2. Choose File > Save as user-template and enter a template name.  The project setup is now a user template to create new projects.
-3. When creating a new project select File > New > From template and follow the wizard's instructions.
-4. Ensure you have the environment variables plugin installed (in linux you can install this by installing the codeblocks-contrib package)
-5. Choose Settings > Environment and scroll down to the Environment Variables section.
-6. Add `DEVKITPRO` and point it to where devkitpro is installed
-7. Add `DEVKITARM` and point it to where devkitarm is.
-
-To compile in Code::Blocks simply select your target from the list and click the Gear icon to automatically invoke the `Makefile`
-
-**Note** Make sure you are using MSYS2's make (make.exe) and not MINGW's make (mingw32-make.exe)
-
-## Creating a new project
-1. Make a new Code::Blocks project via a user-template you just created above.  Or simply copy this directory.
-2. (Only needed for cia/3ds builds) Edit the file `resources/AppInfo`
-    1. Edit those values and ensure you choose a unique id see [unique_id_list].
-    2. Replace the existing files in the `resources` directory to suit your needs.
-    
-**Note** please ensure that no folder/directory used in the project contains spaces. Devkitpro's Makefiles apparently does not like this.
-That is, do not have it in a folder like `C:/3DS Hacking/3ds-template` rather `C:/3DS_Hacking/3ds-template`
-  
 ## Credits
 All of this would not have been possible without the work of
 * [Smealum](https://github.com/smealum)
 * [Steveice10](https://github.com/Steveice10) for the [buildtools]
 * [amaredeus](https://github.com/amaredeus) for various improvements to the template (such as the formatting in this README)
+* [TricksterGuy](https://github.com/TricksterGuy) for this template
 
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
