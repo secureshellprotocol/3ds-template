@@ -1,7 +1,5 @@
 # 3ds-template
 
-A starter template for various 3DS homebrew applications. This template is geared specifically towards the Code::Blocks IDE.  This template can also be used without Code::Blocks just use the `Makefile` and directory structure provided.
-
 This is designed to be a simple and fairly minimal setup required to begin developing homebrew for the 3ds system. As such it doesn't include everything needed to build everything out of the box if you want to build 3ds or cia homebrew.
 
 ## Usage
