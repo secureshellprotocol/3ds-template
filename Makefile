@@ -1,10 +1,100 @@
 .PHONY: clean all bootstrap
 
 all: bootstrap
-	podman run --rm -v ${CURDIR}:/devkitpro secureshellprotocol/devkitpro-env:latest make -f 3ds.Makefile
+	podman run --rm -v ${CURDIR}:/devkitpro localhost/secureshellprotocol:devkitpro-env make -f 3ds.Makefile
 
 cia: bootstrap
-	podman run --rm -v ${CURDIR}:/devkitpro secureshellprotocol/devkitpro-env:latest make -f 3ds.Makefile cia
+	podman run --rm -v ${CURDIR}:/devkitpro localhost/secureshellprotocol:devkitpro-env make -f 3ds.Makefile cia
 
 bootstrap:
-	podman build -t secureshellprotocol:devkitpro-env ./docker
+	podman build --target=release -t secureshellprotocol:devkitpro-env ./docker
+
+export_libctru:
+	podman build --force-rm --target=export-libctru --output type=local,dest=. ./docker
+
+clean_libctru:
+	rm -r \
+		include/3ds \
+		include/3ds.h \
+		include/_ansi.h \
+		include/_newlib_version.h \
+		include/_syslist.h \
+		include/alloca.h \
+		include/ar.h \
+		include/argz.h \
+		include/arpa \
+		include/assert.h \
+		include/bits \
+		include/c++ \
+		include/c2d \
+		include/c3d \
+		include/citro2d.h \
+		include/citro3d.h \
+		include/complex.h \
+		include/cpio.h \
+		include/ctype.h \
+		include/devctl.h \
+		include/dirent.h \
+		include/elf.h \
+		include/envlock.h \
+		include/envz.h \
+		include/errno.h \
+		include/fastmath.h \
+		include/fcntl.h \
+		include/fenv.h \
+		include/fnmatch.h \
+		include/ftw.h \
+		include/getopt.h \
+		include/glob.h \
+		include/grp.h \
+		include/iconv.h \
+		include/ieeefp.h \
+		include/inttypes.h \
+		include/langinfo.h \
+		include/libgen.h \
+		include/limits.h \
+		include/locale.h \
+		include/machine \
+		include/malloc.h \
+		include/math.h \
+		include/memory.h \
+		include/ndbm.h \
+		include/netdb.h \
+		include/netinet \
+		include/newlib.h \
+		include/paths.h \
+		include/poll.h \
+		include/pthread.h \
+		include/pwd.h \
+		include/reent.h \
+		include/regdef.h \
+		include/regex.h \
+		include/rpc \
+		include/sched.h \
+		include/search.h \
+		include/semaphore.h \
+		include/setjmp.h \
+		include/signal.h \
+		include/spawn.h \
+		include/ssp \
+		include/stdatomic.h \
+		include/stdint.h \
+		include/stdio.h \
+		include/stdio_ext.h \
+		include/stdlib.h \
+		include/string.h \
+		include/strings.h \
+		include/sys \
+		include/tar.h \
+		include/termios.h \
+		include/tex3ds.h \
+		include/tgmath.h \
+		include/threads.h \
+		include/time.h \
+		include/unctrl.h \
+		include/unistd.h \
+		include/utime.h \
+		include/utmp.h \
+		include/wchar.h \
+		include/wctype.h \
+		include/wordexp.h
